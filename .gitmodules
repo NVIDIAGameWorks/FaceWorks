@@ -1,0 +1,3 @@
+[submodule "samples/externals/DXUT"]
+	path = samples/externals/DXUT
+	url = https://github.com/Microsoft/DXUT.git

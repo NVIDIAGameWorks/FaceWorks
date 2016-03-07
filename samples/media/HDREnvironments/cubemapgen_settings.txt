@@ -1,0 +1,35 @@
+SET AUTO REFRESH TO OFF OTHERWISE CUBEMAPGEN WILL START FILTERING THE CUBEMAP
+AS SOON AS YOU TOUCH ANYTHING!
+
+For environment cube (just converting from cross format to .dds,
+unfortunately a pure no-op seems to be impossible in CubeMapGen,
+but this is as close as I can get):
+- Output size: 1024
+- Output format: float16 RGBA
+- Save Mipchain: no
+- Filter Type: Disc
+- Base Filter Angle: 0.0
+- Edge fixup: no
+
+For diffuse cube:
+- Output size: 32
+- Output format: float16 RGBA
+- Save Mipchain: no
+- Irradiance cubemap: yes
+- Edge fixup: no
+- Use solid angle weighting: yes
+
+For specular cube:
+- Output size: 256
+- Output format: float16 RGBA
+- Save Mipchain: yes
+- Filter type: CosinePower
+- MipmapChain: Mipmap
+- Num Mipmap: 9
+- Lighting model: BlinnBRDF
+- Irradiance cubemap: no
+- Exclude base: yes
+- Gloss scale: 13
+- Gloss bias: 0
+- Edge fixup: no
+- Use solid angle weighting: yes
