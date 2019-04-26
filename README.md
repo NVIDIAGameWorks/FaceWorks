@@ -313,21 +313,21 @@ When you're done with the error blob, call `GFSDK_FaceWorks_FreeErrorBlob()` to 
 Version History
 ---------------
 
-###FaceWorks 1.0 (March 2016) - First opensource release
+#### FaceWorks 1.0 (March 2016) - First opensource release
 
 -   Codebase migrated to latest version DXUT (as submodules from GitHub), and upgraded to use latest DX11 and DirectXMath.
 -   Fixed a problem when UV components when triangle coords were degenerate
 -   Code cleanup and doxygen comments
 -   Converted documentation to markdown
 
-###FaceWorks 0.8 (April 2014)
+#### FaceWorks 0.8 (April 2014)
 
 -   Deep scattering for direct light.
 -   Helper functions for estimating thickness from standard types of shadow maps, for deep scattering.
 -   Subsurface scattering for ambient light.
 -   Various improvements to sample app.
 
-###FaceWorks 0.5 (January 2014)
+#### FaceWorks 0.5 (January 2014)
 
 -   Preintegrated subsurface scattering supported in D3D11, for skin rendering.
 -   APIs to generate mesh data (curvature, UV scale) used by preintegrated SSS.
