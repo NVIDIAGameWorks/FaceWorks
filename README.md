@@ -227,7 +227,9 @@ The following sections discuss these steps in detail.
 
 #### Normals and Curvature
 
-First, to determine the mip level at which to sample the normal map, you can call `GFSDK_FaceWorks_CalculateMipLevelForBlurredNormal()`. This function accepts:
+First, to determine the mip level at which to sample the normal map, you can call `GFSDK_FaceWorks_CalculateMipLevelForBlurredNormal()`.
+
+This function accepts:
 
 -   The `GFSDK_FaceWorks_CBData` struct passed down in a constant buffer
 -   The texture, sampler, and UV at which to calculate the mip level
@@ -236,7 +238,9 @@ First, to determine the mip level at which to sample the normal map, you can cal
 
 Sample the normal map twice, once as usual and once with the resulting mip level. Unpack both normals, convert them from tangent to world space, etc. just as you usually would.
 
-To calculate direct diffuse lighting, call `GFSDK_FaceWorks_EvaluateSSSDirectLight()`. This function accepts:
+To calculate direct diffuse lighting, call `GFSDK_FaceWorks_EvaluateSSSDirectLight()`.
+
+This function accepts:
 
 -   The `GFSDK_FaceWorks_CBData` struct passed down in a constant buffer
 -   The geometric normal (i.e. interpolated vertex normal)
@@ -256,7 +260,9 @@ This function can be called several times to calculate results for different lig
 
 As mentioned in the feature-overview, the details of shadow filtering are up to you; FaceWorks does not do the actual filtering for you.
 
-Once you have the wide shadow filter value, call `GFSDK_FaceWorks_EvaluateSSSShadow()`. This function accepts:
+Once you have the wide shadow filter value, call `GFSDK_FaceWorks_EvaluateSSSShadow()`.
+
+This function accepts:
 
 -   The `GFSDK_FaceWorks_CBData` struct passed down in a constant buffer
 -   The geometric normal (i.e. interpolated vertex normal)
@@ -270,7 +276,9 @@ Additionally, you will likely want to use the sharpened version of the input sha
 
 #### Ambient Light
 
-To generate the three normal vectors used for ambient light, call `GFSDK_FaceWorks_CalculateNormalsForAmbientLight()`. This function accepts the shading normal and blurred normal seen previously, and returns (via output parameters) the three normals at which to evaluate ambient light.
+To generate the three normal vectors used for ambient light, call `GFSDK_FaceWorks_CalculateNormalsForAmbientLight()`.
+
+This function accepts the shading normal and blurred normal seen previously, and returns (via output parameters) the three normals at which to evaluate ambient light.
 
 You can then evaluate the ambient light coming from each of those three normals, and pass the RGB results to `GFSDK_FaceWorks_EvaluateSSSAmbientLight()`. The result will be the RGB ambient lighting result, ready to be multiplied by the diffuse color.
 
@@ -293,7 +301,9 @@ The functions all return the thickness in world units.
 
 Note that these functions do not include the inward normal offset to the shadow sampling position that we recommended in the feature-overview. You'll need to apply this offset to the position yourself. The sample app included with FaceWorks demonstrates this.
 
-Whether you use these helper functions or your own thickness estimate, you can pass the result to `GFSDK_FaceWorks_EvaluateDeepScatterDirectLight()`. This function accepts:
+Whether you use these helper functions or your own thickness estimate, you can pass the result to `GFSDK_FaceWorks_EvaluateDeepScatterDirectLight()`.
+
+This function accepts:
 
 -   The `GFSDK_FaceWorks_CBData` struct passed down in a constant buffer
 -   The blurred normal seen previously
@@ -313,21 +323,21 @@ When you're done with the error blob, call `GFSDK_FaceWorks_FreeErrorBlob()` to 
 Version History
 ---------------
 
-###FaceWorks 1.0 (March 2016) - First opensource release
+#### FaceWorks 1.0 (March 2016) - First opensource release
 
 -   Codebase migrated to latest version DXUT (as submodules from GitHub), and upgraded to use latest DX11 and DirectXMath.
 -   Fixed a problem when UV components when triangle coords were degenerate
 -   Code cleanup and doxygen comments
 -   Converted documentation to markdown
 
-###FaceWorks 0.8 (April 2014)
+#### FaceWorks 0.8 (April 2014)
 
 -   Deep scattering for direct light.
 -   Helper functions for estimating thickness from standard types of shadow maps, for deep scattering.
 -   Subsurface scattering for ambient light.
 -   Various improvements to sample app.
 
-###FaceWorks 0.5 (January 2014)
+#### FaceWorks 0.5 (January 2014)
 
 -   Preintegrated subsurface scattering supported in D3D11, for skin rendering.
 -   APIs to generate mesh data (curvature, UV scale) used by preintegrated SSS.
